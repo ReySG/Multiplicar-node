@@ -4,6 +4,8 @@
 // const fs = require('fs');
 // const fs = require('./fs');
 const argv = require('./config/yargs').argv;
+const colors = require('colors/safe');
+ 
 
 const {
     crearArchivo,
@@ -19,7 +21,7 @@ switch (comando) {
 
     case 'crear':
         crearArchivo(argv.base, argv.limite)
-            .then(archivo => console.log(`Archivo creado: ${archivo}`, listarTabla))
+            .then(archivo => console.log(`Archivo creado: `, colors.green(`${archivo}`), listarTabla))
             .catch(e => console.log(e));
         break;
 
